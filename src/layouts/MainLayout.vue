@@ -38,6 +38,7 @@
           <span class="nav-label">{{ item.label }}</span>
         </button>
       </nav>
+      <div class="version-info">v{{ appVersion }}</div>
     </q-footer>
   </q-layout>
 </template>
@@ -48,6 +49,9 @@ import { useProgressoStore } from 'src/stores/progresso'
 import { AVATARES } from 'src/data/avatares'
 
 const store = useProgressoStore()
+
+/* global __APP_VERSION__ */
+const appVersion = __APP_VERSION__
 
 const avatarEmoji = computed(() => {
   const av = AVATARES.find(a => a.id === store.avatarId)
@@ -176,5 +180,13 @@ const navItems = [
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+}
+
+.version-info {
+  text-align: center;
+  font-size: 0.58rem;
+  color: var(--c-accent1);
+  padding-bottom: 4px;
+  letter-spacing: 0.05em;
 }
 </style>
