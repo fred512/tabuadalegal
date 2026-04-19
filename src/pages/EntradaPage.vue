@@ -16,13 +16,13 @@
       <template v-if="!store.playerName || editando">
         <div class="form-area">
           <label class="form-label">Qual é o seu nome?</label>
-          <q-input
+          <input
             v-model="nome"
-            outlined
+            type="text"
             placeholder="Digite seu nome..."
             class="name-input"
             maxlength="20"
-            autofocus
+            autocomplete="off"
             @keyup.enter="confirmar"
           />
 
@@ -186,6 +186,24 @@ function confirmar() {
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
+
+/* Native input */
+.name-input {
+  width: 100%;
+  background: var(--c-accent4);
+  border: 1px solid var(--c-accent1);
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--c-text);
+  outline: none;
+  transition: border-color 0.15s;
+  margin-bottom: 4px;
+}
+.name-input::placeholder { color: var(--c-text-2); }
+.name-input:focus { border-color: var(--c-accent2); }
 
 /* Avatar grid */
 .avatar-grid {
