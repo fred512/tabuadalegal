@@ -37,6 +37,24 @@
       </button>
     </div>
 
+    <!-- Reset button -->
+    <div class="reset-area">
+      <button class="btn-reset" @click="confirmarReset = true">🗑️ Resetar progresso</button>
+    </div>
+
+    <!-- Reset confirmation -->
+    <q-dialog v-model="confirmarReset">
+      <div class="reset-dialog">
+        <div class="reset-icon">⚠️</div>
+        <h3 class="reset-titulo">Resetar tudo?</h3>
+        <p class="reset-texto">Todo o progresso, XP, estrelas e vídeos desbloqueados serão apagados. Essa ação não pode ser desfeita.</p>
+        <div class="reset-actions">
+          <button class="btn-reset-confirm" @click="fazerReset">Sim, resetar</button>
+          <button class="btn-reset-cancel" @click="confirmarReset = false">Cancelar</button>
+        </div>
+      </div>
+    </q-dialog>
+
     <!-- Certificate modal -->
     <q-dialog v-model="showCert">
       <div class="cert-card">
@@ -61,6 +79,12 @@ import { useProgressoStore } from 'src/stores/progresso'
 
 const store = useProgressoStore()
 const showCert = ref(false)
+const confirmarReset = ref(false)
+
+function fazerReset() {
+  store.resetar()
+  confirmarReset.value = false
+}
 
 const CORES = [
   '#DD6E6E', '#F7AD45', '#CCAB89', '#5FB962', '#72A4D9',
@@ -261,6 +285,65 @@ function imprimir() { window.print() }
   padding: 10px 20px;
   font-family: 'Nunito', sans-serif;
   font-weight: 800;
+  cursor: pointer;
+}
+
+.reset-area {
+  text-align: center;
+  margin-top: 24px;
+  padding-bottom: 8px;
+}
+
+.btn-reset {
+  background: none;
+  border: none;
+  color: var(--c-error);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.15s;
+  padding: 4px 8px;
+}
+.btn-reset:hover { opacity: 1; }
+
+.reset-dialog {
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-accent4);
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  width: 300px;
+  max-width: 90vw;
+}
+
+.reset-icon  { font-size: 2.5rem; }
+.reset-titulo { font-size: 1.1rem; font-weight: 900; color: var(--c-text); margin: 10px 0 8px; }
+.reset-texto  { font-size: 0.84rem; color: var(--c-text-2); line-height: 1.5; margin-bottom: 20px; }
+.reset-actions { display: flex; flex-direction: column; gap: 8px; }
+
+.btn-reset-confirm {
+  background: var(--c-error);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btn-reset-cancel {
+  background: var(--c-accent4);
+  color: var(--c-text-2);
+  border: 1px solid var(--c-accent1);
+  border-radius: 12px;
+  padding: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
   cursor: pointer;
 }
 
