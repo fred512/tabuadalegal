@@ -1,0 +1,68 @@
+@import 'quasar/src/css/index.sass';
+
+:root {
+  --c-primary:   #A09797;
+  --c-secondary: #80A1C2;
+  --c-tertiary:  #CCAB89;
+  --c-alternate: #322929;
+  --c-text:      #E7E4E4;
+  --c-text-2:    #A19B9B;
+  --c-bg:        #141212;
+  --c-bg-2:      #242122;
+  --c-accent1:   #4D4242;
+  --c-accent2:   #648CB4;
+  --c-accent3:   #B88C61;
+  --c-accent4:   #3E3232;
+  --c-success:   #5FB962;
+  --c-error:     #DD6E6E;
+  --c-warning:   #F7AD45;
+  --c-info:      #72A4D9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
+  background: var(--c-bg) !important;
+  color: var(--c-text);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.q-layout,
+.q-page-container,
+.q-page {
+  background: var(--c-bg) !important;
+}
+
+// Global q-input dark theme
+.q-field--outlined .q-field__control {
+  background: var(--c-accent4) !important;
+}
+.q-field--outlined .q-field__control::before {
+  border-color: var(--c-accent1) !important;
+}
+.q-field--outlined.q-field--focused .q-field__control::before {
+  border-color: var(--c-accent2) !important;
+}
+.q-field__native,
+.q-field__input {
+  color: var(--c-text) !important;
+  font-family: 'Nunito', sans-serif !important;
+}
+.q-field__label {
+  color: var(--c-text-2) !important;
+}
+.q-field__bottom {
+  display: none !important;
+}
+
+.q-btn {
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 800 !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

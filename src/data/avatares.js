@@ -1,0 +1,14 @@
+export const AVATARES = [
+  { id: 1, emoji: '🦁', nome: 'Leão' },
+  { id: 2, emoji: '🐯', nome: 'Tigre' },
+  { id: 3, emoji: '🦊', nome: 'Raposa' },
+  { id: 4, emoji: '🐻', nome: 'Urso' },
+  { id: 5, emoji: '🐸', nome: 'Sapo' },
+  { id: 6, emoji: '🦄', nome: 'Unicórnio' },
+  { id: 7, emoji: '🐧', nome: 'Pinguim' },
+  { id: 8, emoji: '🦅', nome: 'Águia' },
+  { id: 9, emoji: '🐉', nome: 'Dragão' },
+  { id: 10, emoji: '🦖', nome: 'Dinossauro' },
+  { id: 11, emoji: '🚀', nome: 'Astronauta' },
+  { id: 12, emoji: '⚽', nome: 'Craque' },
+]
