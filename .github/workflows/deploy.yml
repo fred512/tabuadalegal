@@ -11,14 +11,22 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
+      - name: Calcular versão
+        run: echo "APP_VERSION=$(git rev-list --count HEAD)" >> $GITHUB_ENV
+
       - run: npm ci
+
       - run: npm run build
+        env:
+          APP_VERSION: ${{ env.APP_VERSION }}
 
       - uses: peaceiris/actions-gh-pages@v4
         with:

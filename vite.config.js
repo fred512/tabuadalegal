@@ -5,10 +5,11 @@ import path from 'path'
 import { readFileSync } from 'fs'
 
 const { version } = JSON.parse(readFileSync('./package.json', 'utf-8'))
+const appVersion = process.env.APP_VERSION || version
 
 export default defineConfig({
   define: {
-    __APP_VERSION__: JSON.stringify(version),
+    __APP_VERSION__: JSON.stringify(appVersion),
   },
   base: '/tabuadalegal/',
   plugins: [
