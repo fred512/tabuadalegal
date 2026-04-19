@@ -18,7 +18,10 @@
       <button class="cert-btn" @click="verCertificado">Ver certificado</button>
     </div>
 
-    <p class="section-title">Escolha uma tabuada:</p>
+    <div class="acoes-row">
+      <p class="section-title">Escolha uma tabuada:</p>
+      <button class="btn-trocar" @click="$router.push('/')">👤 Trocar jogador</button>
+    </div>
 
     <!-- Table grid -->
     <div class="tabuadas-grid">
@@ -187,14 +190,7 @@ function imprimir() { window.print() }
   flex-shrink: 0;
 }
 
-.section-title {
-  font-weight: 700;
-  color: var(--c-text-2);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin: 8px 0 12px;
-}
+
 
 /* Table grid */
 .tabuadas-grid {
@@ -356,5 +352,39 @@ function imprimir() { window.print() }
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
   cursor: pointer;
+}
+
+.acoes-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-weight: 700;
+  color: var(--c-text-2);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0;
+}
+
+.btn-trocar {
+  background: var(--c-accent4);
+  border: 1px solid var(--c-accent1);
+  color: var(--c-text-2);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 10px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-trocar:hover {
+  background: var(--c-accent1);
+  color: var(--c-text);
 }
 </style>
